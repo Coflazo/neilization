@@ -1,7 +1,10 @@
 <table>
 <tr>
 <td width="150" valign="top">
-  <img src="assets/neilization_backgroundless.png" width="132" alt="Neilization line-art mark" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/neilization_backgroundless.png">
+    <img src="assets/neilization_backgroundless_light.png" width="132" alt="Neilization line-art mark">
+  </picture>
 </td>
 <td valign="top">
 
@@ -241,7 +244,8 @@ neilization/
 |-- install.sh
 |-- install.ps1
 |-- assets/
-|   `-- neilization_backgroundless.png
+|   |-- neilization_backgroundless.png
+|   `-- neilization_backgroundless_light.png
 |-- references/
 |   |-- examples.md
 |   |-- formulaic-vocabulary.md
@@ -264,7 +268,7 @@ Then verify:
 
 | Check | Pass condition |
 |---|---|
-| README image | Uses `assets/neilization_backgroundless.png`. |
+| README image | Uses light and dark marks with a GitHub-compatible `<picture>` block. |
 | Examples | Inputs and outputs are constructed, not attributed. |
 | Skill frontmatter | Contains only `name` and `description`. |
 | References | Stay one level deep and load only when needed. |

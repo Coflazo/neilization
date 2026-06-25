@@ -43,6 +43,7 @@ for (const rel of [
   "install.sh",
   "install.ps1",
   "assets/neilization_backgroundless.png",
+  "assets/neilization_backgroundless_light.png",
   "references/voice-patterns.md",
   "references/structural-patterns.md",
   "references/formulaic-vocabulary.md",
@@ -52,15 +53,19 @@ for (const rel of [
   assert(fs.existsSync(path.join(root, rel)), `missing: ${rel}`);
 }
 
-const png = path.join(root, "assets/neilization_backgroundless.png");
-if (fs.existsSync(png)) {
-  const sig = fs.readFileSync(png).subarray(0, 8).toString("hex");
-  assert(sig === "89504e470d0a1a0a", "assets/neilization_backgroundless.png is not a valid PNG");
+for (const rel of ["assets/neilization_backgroundless.png", "assets/neilization_backgroundless_light.png"]) {
+  const png = path.join(root, rel);
+  if (fs.existsSync(png)) {
+    const sig = fs.readFileSync(png).subarray(0, 8).toString("hex");
+    assert(sig === "89504e470d0a1a0a", `${rel} is not a valid PNG`);
+  }
 }
 
 const readme = read("README.md");
 if (readme) {
   assert(readme.includes("assets/neilization_backgroundless.png"), "README must reference assets/neilization_backgroundless.png");
+  assert(readme.includes("assets/neilization_backgroundless_light.png"), "README must reference assets/neilization_backgroundless_light.png");
+  assert(readme.includes("prefers-color-scheme: dark"), "README must use a dark-mode image source");
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.sh"), "README must include install.sh command");
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.ps1"), "README must include install.ps1 command");
   assert(!/\p{Extended_Pictographic}/u.test(readme), "README must not contain emoji pictographs");
