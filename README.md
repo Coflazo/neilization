@@ -14,8 +14,6 @@ Claude skill for turning plain explanation into public-science prose with a cosm
 
 It preserves the base meaning, cuts dead weight, adds supported explanatory bridges, translates scale, and returns a rewrite that a real writer can defend.
 
-Its guidance was calibrated from a large reference corpus containing tens of thousands of words from publicly available Neil deGrasse Tyson materials, including public-science prose, interviews, testimony, essays, and research PDFs. It is not model training, and it does not attempt personal voice imitation.
-
 </td>
 </tr>
 </table>
@@ -23,6 +21,43 @@ Its guidance was calibrated from a large reference corpus containing tens of tho
 ```text
 flat draft -> evidence sorted -> scale made visible -> sharper public prose
 ```
+
+## Why This Exists
+
+<details open>
+<summary><strong>A personal note</strong></summary>
+
+I have been a fan of Neil deGrasse Tyson's work for a long time, not only because he explains science, but because he can enter almost any room in the population and make the room feel less locked out of the subject. A scientist can explain a paper to another scientist. That is expected. The rarer ability is explaining a scientific idea to the person who already decided, years ago, that science was not written for them.
+
+For our parents' generation, Carl Sagan's *Cosmos* made that bridge feel possible on television. Today the same public role is carried by people like Neil deGrasse Tyson, Brian Cox, Michio Kaku, Becky Smethurst, and many others. We have to admit that many of us watch their videos, and some of us read their books, because they make the universe feel less private.
+
+</details>
+
+<details>
+<summary><strong>The public-science problem</strong></summary>
+
+Decades ago, a scientist could more easily treat public understandability as optional: useful, maybe morally good, but not always central to the job. That changed unevenly across countries and institutions. The 1985 [Bodmer Report](https://royalsociety.org/news-resources/publications/1985/public-understanding-science/) helped give the "public understanding of science" movement one of its canonical landmarks. In the United States, the National Science Foundation's broader-impacts criterion became part of grant review in [1997](https://academic.oup.com/bioscience/article/65/4/397/254803). In the United Kingdom, [REF 2014](https://www.rand.org/randeurope/research/projects/2015/hefce-ref2014-impact.html) made "impact" part of a funding-linked research assessment. These are not the same policy, and they did not happen for the same reason, but the direction is hard to miss.
+
+Some scientists understandably disliked the new pressure. If a researcher has limited time and energy, then asking for public explanation can feel like moving effort away from the research itself. That argument used to sound stronger than it does now. Public understanding can affect trust, funding, recruitment, and the willingness of young people, and their parents, to imagine science as something they can enter rather than something they can only admire from outside.
+
+</details>
+
+<details>
+<summary><strong>What neilization is trying to do</strong></summary>
+
+`neilization` starts from that tension. It is free to use, and its guidance was calibrated from a large reference corpus containing tens of thousands of words from publicly available Neil deGrasse Tyson materials: public-science prose, interviews, testimony, essays, and research PDFs. It is not a neural training run. It does not claim exact personal voice imitation. It studies high-level explanatory moves: how to begin with a human handle, widen the frame, sort evidence, translate scale, and return the cosmic thought back to the person reading.
+
+The next stages should add separate branches for other science explainers, each calibrated from public material and each with its own register, tone, and explanatory instincts. The larger goal is simple: make difficult text less private without making it less honest.
+
+</details>
+
+| Moment | Why it matters here |
+|---|---|
+| Carl Sagan and *Cosmos* | A model for making the scientific imagination public. |
+| 1985 Bodmer Report | Public understanding becomes a named institutional concern. |
+| NSF broader impacts, 1997 | Scientific merit begins sharing space with broader public consequence in grant review. |
+| REF 2014 impact assessment | Research impact becomes visibly tied to funding-linked assessment in the UK. |
+| Today's explainers | Public science becomes education, trust-building, audience growth, and career infrastructure at the same time. |
 
 ## Install
 
