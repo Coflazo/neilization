@@ -19,27 +19,66 @@ It preserves the base meaning, cuts dead weight, adds supported explanatory brid
 flat draft -> evidence sorted -> scale made visible -> sharper public prose
 ```
 
-## Fast Path
+## Install
 
-Install the folder at:
+One line. Finds supported local agent homes. Installs for each.
+
+macOS / Linux / WSL / Git Bash:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Coflazo/neilization/main/install.sh | bash
+```
+
+Windows PowerShell 5.1+:
+
+```powershell
+irm https://raw.githubusercontent.com/Coflazo/neilization/main/install.ps1 | iex
+```
+
+About 30 seconds. No build step. Node >=18 is only needed for the validator. Safe to re-run.
+
+Trigger: type `/neilization` or say `neilize this`. There is no sticky mode to stop; ask for a normal edit when you do not want the skill.
+
+One agent only, manual install, custom directory, or troubleshooting: see [INSTALL.md](INSTALL.md). Install break? Open your agent and say:
+
+```text
+Read README.md and INSTALL.md, install neilization for me.
+```
+
+Manual path:
 
 ```bash
 ~/.claude/skills/neilization/
 ```
 
-Then ask Claude:
+Run the package check after install:
+
+```bash
+node ~/.claude/skills/neilization/scripts/validate.mjs
+```
+
+## What You Get
+
+| Skill surface | What |
+|---|---|
+| `/neilization <text>` | Rewrites explanatory prose into public-science language with a cosmic-perspective lens. |
+| `neilize this` | Natural-language trigger for the same rewrite behavior. |
+| `make this more cosmic` | Adds scale, consequence, and wider-frame context without inventing claims. |
+| `rewrite this for the public` | Turns technical or institutional prose into clear reader-facing explanation. |
+| `include an edit audit` | Returns what was cut, added, reordered, and preserved before the final rewrite. |
+| Popular science mode | Mechanism first, then scale, consequence, and a humble close. |
+| Civic cosmic mode | Sorts belief, measurement, inference, preference, and public consequence. |
+| Formal research mode | Keeps papers, reports, and grants sober: claim, method, limit, consequence. |
+| Speech clarity mode | Cleans Q&A, testimony, talks, and transcripts into direct spoken prose. |
+| `scripts/validate.mjs` | Checks package structure, frontmatter, README image path, PNG validity, no emojis, and safety wording. |
+
+Example prompts:
 
 ```text
 neilize this paragraph
 rewrite this for a public science audience
 make this more cosmic, but keep it accurate
 turn this speech answer into something direct and vivid
-```
-
-Run the package check:
-
-```bash
-node ~/.claude/skills/neilization/scripts/validate.mjs
 ```
 
 ## What It Is
@@ -52,7 +91,7 @@ The default response is the final rewrite only. If you want the edit trail, ask 
 Neilize this essay and include what you cut, added, reordered, and preserved.
 ```
 
-## Use It For
+## Rewrite Modes
 
 | Source text | Best mode | What improves |
 |---|---|---|
@@ -196,6 +235,9 @@ It will redirect those requests into transparent editing: clearer claims, strong
 neilization/
 |-- SKILL.md
 |-- README.md
+|-- INSTALL.md
+|-- install.sh
+|-- install.ps1
 |-- assets/
 |   `-- neilization_backgroundless.png
 |-- references/
@@ -225,6 +267,7 @@ Then verify:
 | Skill frontmatter | Contains only `name` and `description`. |
 | References | Stay one level deep and load only when needed. |
 | Safety | No exact-imitation, fake-source, or detector-result promises. |
+| Installers | `install.sh` and `install.ps1` point at `Coflazo/neilization`. |
 | Style | No emojis, no decorative filler, no copied README structure. |
 
 ## Design Notes

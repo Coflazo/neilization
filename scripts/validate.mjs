@@ -39,6 +39,9 @@ if (fm) {
 
 for (const rel of [
   "README.md",
+  "INSTALL.md",
+  "install.sh",
+  "install.ps1",
   "assets/neilization_backgroundless.png",
   "references/voice-patterns.md",
   "references/structural-patterns.md",
@@ -58,9 +61,17 @@ if (fs.existsSync(png)) {
 const readme = read("README.md");
 if (readme) {
   assert(readme.includes("assets/neilization_backgroundless.png"), "README must reference assets/neilization_backgroundless.png");
+  assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.sh"), "README must include install.sh command");
+  assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.ps1"), "README must include install.ps1 command");
   assert(!/\p{Extended_Pictographic}/u.test(readme), "README must not contain emoji pictographs");
   assert(!/passing\s+(GPTZero|Turnitin|Originality)|undetectable|bypass/i.test(readme), "README contains detector-bypass wording");
 }
+
+const installSh = read("install.sh");
+assert(installSh.includes("https://github.com/Coflazo/neilization/archive/refs/heads/main.tar.gz"), "install.sh must download the Coflazo/neilization tarball");
+
+const installPs1 = read("install.ps1");
+assert(installPs1.includes("https://github.com/Coflazo/neilization/archive/refs/heads/main.zip"), "install.ps1 must download the Coflazo/neilization zip");
 
 const activeFiles = [
   "SKILL.md",
