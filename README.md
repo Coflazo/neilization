@@ -45,7 +45,7 @@ Some scientists understandably disliked the new pressure. If a researcher has li
 <details>
 <summary><strong>What neilization is trying to do</strong></summary>
 
-`neilization` starts from that tension. It is free to use, and its guidance was calibrated from a large reference corpus containing tens of thousands of words from publicly available Neil deGrasse Tyson materials: public-science prose, interviews, testimony, essays, and research PDFs. It is not a neural training run. It does not claim exact personal voice imitation. It studies high-level explanatory moves: how to begin with a human handle, widen the frame, sort evidence, translate scale, and return the cosmic thought back to the person reading.
+`neilization` starts from that tension. It is free to use, and its guidance was calibrated from a large reference corpus spanning thousands of pages of publicly available Neil deGrasse Tyson materials: public-science prose, interviews, testimony, essays, and research PDFs. It is not a neural training run. It does not claim exact personal voice imitation. It studies high-level explanatory moves: how to begin with a human handle, widen the frame, sort evidence, translate scale, and return the cosmic thought back to the person reading.
 
 The next stages should add separate branches for other science explainers, each calibrated from public material and each with its own register, tone, and explanatory instincts. The larger goal is simple: make difficult text less private without making it less honest.
 
