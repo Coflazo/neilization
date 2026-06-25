@@ -11,6 +11,8 @@ Claude skill for turning plain explanation into public-science prose with a cosm
 
 It preserves the base meaning, cuts dead weight, adds supported explanatory bridges, translates scale, and returns a rewrite that a real writer can defend.
 
+Its guidance was calibrated from a large reference corpus containing tens of thousands of words from publicly available Neil deGrasse Tyson materials, including public-science prose, interviews, testimony, essays, and research PDFs. It is not model training, and it does not attempt personal voice imitation.
+
 </td>
 </tr>
 </table>
