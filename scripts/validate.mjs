@@ -39,7 +39,7 @@ if (fm) {
 
 for (const rel of [
   "README.md",
-  "assets/neilization.png",
+  "assets/neilization_backgroundless.png",
   "references/voice-patterns.md",
   "references/structural-patterns.md",
   "references/formulaic-vocabulary.md",
@@ -49,15 +49,15 @@ for (const rel of [
   assert(fs.existsSync(path.join(root, rel)), `missing: ${rel}`);
 }
 
-const png = path.join(root, "assets/neilization.png");
+const png = path.join(root, "assets/neilization_backgroundless.png");
 if (fs.existsSync(png)) {
   const sig = fs.readFileSync(png).subarray(0, 8).toString("hex");
-  assert(sig === "89504e470d0a1a0a", "assets/neilization.png is not a valid PNG");
+  assert(sig === "89504e470d0a1a0a", "assets/neilization_backgroundless.png is not a valid PNG");
 }
 
 const readme = read("README.md");
 if (readme) {
-  assert(readme.includes("assets/neilization.png"), "README must reference assets/neilization.png");
+  assert(readme.includes("assets/neilization_backgroundless.png"), "README must reference assets/neilization_backgroundless.png");
   assert(!/\p{Extended_Pictographic}/u.test(readme), "README must not contain emoji pictographs");
   assert(!/passing\s+(GPTZero|Turnitin|Originality)|undetectable|bypass/i.test(readme), "README contains detector-bypass wording");
 }

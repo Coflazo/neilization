@@ -1,233 +1,40 @@
 <table>
 <tr>
 <td width="150" valign="top">
-  <img src="assets/neilization.png" width="130" alt="Neilization line-art mark" />
+  <img src="assets/neilization_backgroundless.png" width="132" alt="Neilization line-art mark" />
 </td>
 <td valign="top">
 
 # neilization
 
-Cosmic-perspective rewriting for public science, civic explanation, research clarity, and spoken answers.
+Claude skill for turning plain explanation into public-science prose with a cosmic-perspective lens.
 
-`neilization` is a Claude skill that takes flat explanatory prose and turns it into clearer, more concrete, more public-facing writing. It preserves the source meaning, removes dead weight, adds supported bridges, translates scale, and makes the argument move.
+It preserves the base meaning, cuts dead weight, adds supported explanatory bridges, translates scale, and returns a rewrite that a real writer can defend.
 
 </td>
 </tr>
 </table>
 
 ```text
-source text
-  -> preserve the base claim
-  -> cut what is not doing work
-  -> add only supported explanation
-  -> translate scale into human terms
-  -> return a defensible rewrite
+flat draft -> evidence sorted -> scale made visible -> sharper public prose
 ```
 
-This is not a celebrity impersonation package. It uses high-level public-science techniques: concrete analogy, scale translation, evidence sorting, restrained humor, and the view from a wider frame.
+## Fast Path
 
-## Quick Start
-
-Place the folder here:
+Install the folder at:
 
 ```bash
 ~/.claude/skills/neilization/
 ```
 
-Use it in Claude with prompts like:
+Then ask Claude:
 
 ```text
-neilize this essay
-make this paragraph more cosmic
+neilize this paragraph
 rewrite this for a public science audience
-turn this draft into a sharper explainer
-edit this speech answer so it is direct and vivid
+make this more cosmic, but keep it accurate
+turn this speech answer into something direct and vivid
 ```
-
-By default, the skill returns only the rewritten text. Ask for an audit when you want to see what changed.
-
-```text
-Neilize this paragraph and include an edit audit.
-```
-
-## The Contract
-
-| It must do | It must not do |
-|---|---|
-| Preserve the source's base meaning. | Invent facts, sources, quotes, dates, or anecdotes. |
-| Cut repetition, filler, and unsupported drift. | Copy distinctive phrasing from books, interviews, or essays. |
-| Add definitions, causal bridges, limits, and scale analogies when supported. | Promise detector results or disclosure avoidance. |
-| Reorder ideas when the argument becomes clearer. | Pretend to reproduce a living writer's personal voice. |
-| Match the register to the job: essay, civic, research, or speech. | Turn formal research into personality-forward prose unless asked. |
-
-## Transformations
-
-The examples below are literal test inputs transformed with this skill's own rules. They are not quotations, external examples, or sourced claims.
-
-### 1. Urban Heat
-
-**Input**
-
-```text
-Cities install heat sensors to understand where neighborhoods become dangerously hot. The data can help officials decide where to plant trees, open cooling centers, and update building rules.
-```
-
-**Neilized output**
-
-```text
-On a summer afternoon, a city does not heat evenly. Asphalt lots, flat roofs, and treeless blocks hold heat long after the weather report gives one tidy number for the whole place. A heat sensor turns that hidden geography into evidence. Once officials can see which blocks are storing the most heat, shade stops being decoration. It becomes infrastructure, as practical as a drain or a streetlight.
-```
-
-What changed:
-
-- The abstract policy action became a visible city scene.
-- The mechanism became measurable: different surfaces store heat differently.
-- The close turns "trees" from decoration into infrastructure.
-
-### 2. Classroom Assessment
-
-**Input**
-
-```text
-Teachers use formative assessment to see what students understand during a lesson. This information helps them adjust instruction before the final test.
-```
-
-**Neilized output**
-
-```text
-By the time a final exam arrives, the learning has already happened or failed to happen. Formative assessment moves the measurement upstream. A quick question, a messy worksheet, or a wrong answer on the board tells the teacher where the class is losing the thread while there is still time to repair it. It is less like a verdict and more like an instrument panel for the lesson while the lesson is still flying.
-```
-
-What changed:
-
-- The definition is embedded in the explanation.
-- The timing problem becomes the structure of the paragraph.
-- The analogy clarifies the function without changing the claim.
-
-### 3. Space Policy
-
-**Input**
-
-```text
-Space exploration can inspire students and lead to technological innovation, but public investments must be balanced against other needs.
-```
-
-**Neilized output**
-
-```text
-A space program is never paid for with awe. It is paid for with budgets, which means it must stand beside schools, bridges, hospitals, and every other claim a civilization makes on its future. Its strongest case is not simply that the universe is beautiful, though it is. The case is that exploration trains a society to solve problems at the edge of what it knows, then returns some of that discipline to Earth in the form of instruments, engineers, and ambition.
-```
-
-What changed:
-
-- The paragraph keeps the budget tradeoff.
-- The inspirational claim is grounded in institutions and training.
-- The cosmic frame returns to Earth instead of drifting away from the policy question.
-
-### 4. Generic Technical Prose
-
-**Input**
-
-```text
-Machine learning is a transformative technology that leverages data to identify patterns and make predictions across many industries.
-```
-
-**Neilized output**
-
-```text
-Machine learning begins with examples. Feed a model enough labeled X-rays, loan applications, or weather readings, and it adjusts its internal settings until its guesses stop being terrible. The machine has not acquired wisdom. It has fit a function to a mountain of cases. What changed in the past decade is the size of the mountain.
-```
-
-What changed:
-
-- Hype words were replaced with mechanism.
-- The claim is narrower and easier to defend.
-- Scale becomes the ending, not a slogan.
-
-## Rewrite Modes
-
-| Mode | Best for | Shape |
-|---|---|---|
-| Popular science explainer | Science, technology, AI, astronomy, engineering, statistics, education | Familiar handle, mechanism, scale, consequence, humble close. |
-| Civic cosmic perspective | Culture, policy, ethics, identity, risk, truth, civilization | Human disagreement, wider vantage point, category check, contradiction, human consequence. |
-| Formal research clarity | Papers, reports, grants, institutional prose, academic work | Claim, method or evidence, limit, consequence. |
-| Interview or speech clarity | Q&A, testimony, talks, transcripts | Direct answer, concrete example, mechanism, wider consequence. |
-
-## How Claude Uses The Skill
-
-`SKILL.md` is the runtime file. It stays short so Claude can load the core behavior quickly.
-
-The `references/` files provide detail only when needed:
-
-- `voice-patterns.md` for public-science cadence, scale translation, and evidence sorting.
-- `structural-patterns.md` for paragraph order, argument pressure, and pruning.
-- `formulaic-vocabulary.md` for replacing inflated or generic language.
-- `safety-and-integrity.md` for detector, disclosure, and imitation boundaries.
-- `examples.md` for quick calibration.
-
-The skill chooses a mode, rewrites by idea rather than sentence order, and finishes with an integrity pass:
-
-```text
-meaning preserved
-added material supported
-no copied distinctive phrasing
-no fabricated evidence
-no detector framing
-paragraphs move the argument forward
-```
-
-## Quality Bar
-
-A strong rewrite should answer yes to these questions:
-
-| Check | Question |
-|---|---|
-| Meaning | Does the original claim still survive? |
-| Evidence | Is every added detail supported or clearly general explanation? |
-| Scale | Can the reader picture the size, time, cost, or consequence? |
-| Mechanism | Does wonder come from what the thing does, not hype words? |
-| Structure | Does each paragraph add fact, mechanism, contrast, consequence, or scale? |
-| Register | Did formal prose stay formal, and public prose become vivid? |
-| Integrity | Is the result transparent, defensible, and free of fake evidence? |
-
-## Safety Boundary
-
-`neilization` refuses the wrong job and continues with the right one.
-
-It will not:
-
-- Claim to reproduce a living author's prose as a personal imitation.
-- Copy distinctive sentences from books, essays, interviews, or papers.
-- Invent sources, data, dates, page numbers, quotations, memories, or anecdotes.
-- Promise detector outcomes.
-- Add hidden characters, fake mistakes, disclosure-avoidance tactics, or artificial quirks.
-
-It will:
-
-- Rewrite for clarity, rhythm, structure, and public understanding.
-- Preserve the user's intended claim.
-- Mark uncertainty when the source does not support a stronger statement.
-- Keep research and institutional prose sober when the audience requires it.
-
-## Package Layout
-
-```text
-neilization/
-├── SKILL.md
-├── README.md
-├── assets/
-│   └── neilization.png
-├── references/
-│   ├── examples.md
-│   ├── formulaic-vocabulary.md
-│   ├── safety-and-integrity.md
-│   ├── structural-patterns.md
-│   └── voice-patterns.md
-└── scripts/
-    └── validate.mjs
-```
-
-## Validate
 
 Run the package check:
 
@@ -235,22 +42,193 @@ Run the package check:
 node ~/.claude/skills/neilization/scripts/validate.mjs
 ```
 
-The validator checks:
+## What It Is
 
-- `SKILL.md` frontmatter.
-- Required package files.
-- The PNG asset.
-- README image reference.
-- No emojis in the README.
-- No unsafe detector or imitation wording in active files.
+`neilization` is a writing skill, not a celebrity impersonation tool. It uses high-level public-science techniques: concrete examples, scale translation, evidence sorting, restrained humor, and the habit of moving from the local fact to the wider frame.
 
-## Maintainer Notes
+The default response is the final rewrite only. If you want the edit trail, ask for an audit:
 
-The package is designed around four principles:
+```text
+Neilize this essay and include what you cut, added, reordered, and preserved.
+```
 
-- Small runtime surface.
-- One-level reference loading.
-- Real examples over vague promises.
-- Explicit integrity boundary.
+## Use It For
 
-The result should feel like a serious writing tool: concrete enough to test, disciplined enough to trust, and flexible enough to handle essays, testimony, research summaries, and spoken answers.
+| Source text | Best mode | What improves |
+|---|---|---|
+| Technical explainers | Popular science | Mechanism, analogy, scale, consequence. |
+| Policy or civic prose | Civic cosmic perspective | Evidence categories, contradictions, public stakes. |
+| Papers and reports | Formal research clarity | Claim, method, limitation, consequence. |
+| Talks or interviews | Speech clarity | Direct answer, concrete example, rhythm. |
+
+## Real Transformations
+
+These are literal test inputs rewritten with this skill's own rules. They are not quotations, sourced examples, or claims of personal voice imitation.
+
+### Urban Heat
+
+**Input**
+
+```text
+Cities install heat sensors to understand where neighborhoods become dangerously hot. The data can help officials decide where to plant trees, open cooling centers, and update building rules.
+```
+
+**Output**
+
+```text
+On a summer afternoon, a city does not heat evenly. Asphalt lots, flat roofs, and treeless blocks hold heat long after the weather report gives one tidy number for the whole place. A heat sensor turns that hidden geography into evidence. Once officials can see which blocks are storing the most heat, shade stops being decoration. It becomes infrastructure, as practical as a drain or a streetlight.
+```
+
+**Edit moves**
+
+| Move | Result |
+|---|---|
+| Opened with a scene | The policy problem becomes visible before it becomes abstract. |
+| Named the mechanism | Different surfaces store heat differently. |
+| Reframed the consequence | Trees become infrastructure, not ornament. |
+
+### Classroom Assessment
+
+**Input**
+
+```text
+Teachers use formative assessment to see what students understand during a lesson. This information helps them adjust instruction before the final test.
+```
+
+**Output**
+
+```text
+By the time a final exam arrives, the learning has already happened or failed to happen. Formative assessment moves the measurement upstream. A quick question, a messy worksheet, or a wrong answer on the board tells the teacher where the class is losing the thread while there is still time to repair it. It is less like a verdict and more like an instrument panel for the lesson while the lesson is still flying.
+```
+
+**Edit moves**
+
+| Move | Result |
+|---|---|
+| Reordered around timing | The final test becomes the endpoint, not the opening abstraction. |
+| Defined the term inline | The reader learns what formative assessment does without a glossary. |
+| Added a bounded analogy | The instrument panel image clarifies function without changing the claim. |
+
+### Space Policy
+
+**Input**
+
+```text
+Space exploration can inspire students and lead to technological innovation, but public investments must be balanced against other needs.
+```
+
+**Output**
+
+```text
+A space program is never paid for with awe. It is paid for with budgets, which means it must stand beside schools, bridges, hospitals, and every other claim a civilization makes on its future. Its strongest case is not simply that the universe is beautiful, though it is. The case is that exploration trains a society to solve problems at the edge of what it knows, then returns some of that discipline to Earth in the form of instruments, engineers, and ambition.
+```
+
+**Edit moves**
+
+| Move | Result |
+|---|---|
+| Preserved the tradeoff | The paragraph keeps public budget pressure in view. |
+| Grounded the inspiration claim | Awe becomes training, instruments, engineers, and ambition. |
+| Returned the cosmic frame to Earth | The argument stays useful for policy instead of drifting into wonder. |
+
+### Generic Technical Prose
+
+**Input**
+
+```text
+Machine learning is a transformative technology that leverages data to identify patterns and make predictions across many industries.
+```
+
+**Output**
+
+```text
+Machine learning begins with examples. Feed a model enough labeled X-rays, loan applications, or weather readings, and it adjusts its internal settings until its guesses stop being terrible. The machine has not acquired wisdom. It has fit a function to a mountain of cases. What changed in the past decade is the size of the mountain.
+```
+
+**Edit moves**
+
+| Move | Result |
+|---|---|
+| Removed hype | "Transformative" and "leverages" become mechanism. |
+| Added concrete domains | X-rays, loan applications, and weather readings make the abstraction testable. |
+| Ended on scale | The closing sentence names what actually changed. |
+
+## Operating Rules
+
+| Rule | Standard |
+|---|---|
+| Meaning first | The original claim must still survive. |
+| Support only | Added explanation must be supported by the source or safe general context. |
+| Cut aggressively | Repetition, throat-clearing, and unsupported drift can go. |
+| Reorder freely | The final structure should follow cause, chronology, evidence strength, or scale. |
+| Match register | Research stays sober. Public prose can become more vivid. |
+| Stay transparent | No fabricated evidence, copied phrasing, or detector promises. |
+
+## How Claude Loads It
+
+`SKILL.md` is intentionally short. It gives Claude the runtime behavior, the mode selection, the safety boundary, and the final integrity pass.
+
+Reference files stay one level deep:
+
+| File | Role |
+|---|---|
+| `references/voice-patterns.md` | Public-science cadence, scale translation, evidence sorting. |
+| `references/structural-patterns.md` | Paragraph order, pruning, argument pressure. |
+| `references/formulaic-vocabulary.md` | Replacements for inflated words and stock transitions. |
+| `references/safety-and-integrity.md` | Boundaries for imitation, disclosure, and detector requests. |
+| `references/examples.md` | Short calibration examples. |
+
+## Safety Boundary
+
+The skill will not:
+
+- Claim to reproduce a living writer's prose as a personal imitation.
+- Copy distinctive sentences from books, essays, interviews, or papers.
+- Invent sources, data, dates, page numbers, quotations, memories, or anecdotes.
+- Promise detector outcomes.
+- Add hidden characters, fake mistakes, disclosure-avoidance tactics, or artificial quirks.
+
+It will redirect those requests into transparent editing: clearer claims, stronger structure, accurate evidence, and prose the writer can defend.
+
+## Package Layout
+
+```text
+neilization/
+|-- SKILL.md
+|-- README.md
+|-- assets/
+|   `-- neilization_backgroundless.png
+|-- references/
+|   |-- examples.md
+|   |-- formulaic-vocabulary.md
+|   |-- safety-and-integrity.md
+|   |-- structural-patterns.md
+|   `-- voice-patterns.md
+`-- scripts/
+    `-- validate.mjs
+```
+
+## Maintainer Checklist
+
+Before shipping changes:
+
+```bash
+node scripts/validate.mjs
+```
+
+Then verify:
+
+| Check | Pass condition |
+|---|---|
+| README image | Uses `assets/neilization_backgroundless.png`. |
+| Examples | Inputs and outputs are constructed, not attributed. |
+| Skill frontmatter | Contains only `name` and `description`. |
+| References | Stay one level deep and load only when needed. |
+| Safety | No exact-imitation, fake-source, or detector-result promises. |
+| Style | No emojis, no decorative filler, no copied README structure. |
+
+## Design Notes
+
+This package is designed as a compact tool, not a showcase page. The README uses the mark once, puts setup near the top, proves behavior with real transformations, and keeps the rest scannable for future maintainers.
+
+The intended feel: sober, sharp, readable, and a little cosmic only when the sentence earns it.
