@@ -26,13 +26,14 @@ If the user asks for exact imitation or detector evasion, refuse that framing an
 3. Redraft by idea, not sentence order. Change section order when chronology, cause, evidence strength, or scale makes a better structure.
 4. Preserve every claim that affects the argument. Delete only repetition, ornament, throat-clearing, or unsupported drift.
 5. Add only supported material: definitions, scale analogies, causal steps, limits, counterexamples, consequences, and transitions the reader needs.
-6. Run the final integrity pass.
+6. Run the final integrity and anti-AI-pattern pass.
 
 ## Reference Loading
 
 - Read `references/voice-patterns.md` before substantial rewrites or any explicitly "Neil", "neilize", or cosmic-perspective request.
 - Read `references/structural-patterns.md` when the draft feels padded, generic, metronomic, or sentence-by-sentence paraphrased.
 - Read `references/formulaic-vocabulary.md` when the prose has inflated verbs, stock transitions, empty wonder, or promotional language.
+- Read `references/anti-ai-patterns.md` before finalizing any substantial rewrite, and always when the user mentions AI writing patterns, humanizing, or Wikipedia's signs of AI writing.
 - Read `references/safety-and-integrity.md` when the user mentions AI detectors, humanizing, bypass, school disclosure, or undetectability.
 - Read `references/examples.md` when you need a quick calibration example before rewriting.
 
@@ -96,6 +97,7 @@ Before returning:
 5. No detector-bypass framing.
 6. Paragraph order creates pressure: each paragraph adds fact, mechanism, contrast, consequence, or scale shift.
 7. Formatting matches the task: prose by default, lists only when they improve scanability.
+8. No generic AI-writing residue: no unsupported legacy claims, promotional puffery, canned transitions, chatbot stage directions, decorative formatting, or citation artifacts.
 
 ## Optional Audit Format
 

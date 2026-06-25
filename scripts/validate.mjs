@@ -46,6 +46,7 @@ for (const rel of [
   "assets/neilization_backgroundless_light.png",
   "references/voice-patterns.md",
   "references/structural-patterns.md",
+  "references/anti-ai-patterns.md",
   "references/formulaic-vocabulary.md",
   "references/safety-and-integrity.md",
   "references/examples.md",
@@ -68,6 +69,7 @@ if (readme) {
   assert(readme.includes("prefers-color-scheme: dark"), "README must use a dark-mode image source");
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.sh"), "README must include install.sh command");
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.ps1"), "README must include install.ps1 command");
+  assert(readme.includes("https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"), "README must mention Wikipedia Signs of AI writing");
   assert(!/\p{Extended_Pictographic}/u.test(readme), "README must not contain emoji pictographs");
   assert(!/passing\s+(GPTZero|Turnitin|Originality)|undetectable|bypass/i.test(readme), "README contains detector-bypass wording");
 }
@@ -82,6 +84,7 @@ const activeFiles = [
   "SKILL.md",
   "references/voice-patterns.md",
   "references/structural-patterns.md",
+  "references/anti-ai-patterns.md",
   "references/formulaic-vocabulary.md",
   "references/safety-and-integrity.md",
   "references/examples.md",
@@ -90,6 +93,31 @@ const activeFiles = [
 for (const rel of activeFiles) {
   const text = read(rel);
   assert(!/write exactly like|exactly like Neil|clone .*style|pass GPTZero|pass Turnitin|undetectable/i.test(text), `${rel} contains unsafe phrasing`);
+}
+
+const outputSurfaceFiles = [
+  "README.md",
+  "SKILL.md",
+  "references/examples.md",
+];
+
+const aiPatternChecks = [
+  [/[\u2018\u2019\u201c\u201d]/, "curly quote characters"],
+  [/\u2014/, "em dash characters"],
+  [/\p{Extended_Pictographic}/u, "emoji pictographs"],
+  [/\b(Of course!|Certainly!|I hope this helps|Would you like|let me know|here is a)\b/i, "chatbot stage directions"],
+  [/\b(as of my last knowledge update|up to my last training update|based on available information|specific details are limited|provided search results)\b/i, "knowledge-cutoff or source-gap disclaimers"],
+  [/\b(not only)\b[\s\S]{0,140}\b(but also)\b/i, "not-only-but-also parallelism"],
+  [/\b(stands as|serves as|is a testament|delve|boasts|rich tapestry|vibrant)\b/i, "generic AI vocabulary"],
+  [/\b(in conclusion|in summary)\b/i, "formulaic conclusion marker"],
+  [/\b(contentReference|oaicite|oai_citation|turn0search|attached_file|grok_card|grok_render_citation_card_json|attributableIndex|writing\{variant=)\b/i, "AI citation artifact"],
+];
+
+for (const rel of outputSurfaceFiles) {
+  const text = read(rel);
+  for (const [pattern, label] of aiPatternChecks) {
+    assert(!pattern.test(text), `${rel} contains ${label}`);
+  }
 }
 
 if (fail.length) {

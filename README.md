@@ -14,6 +14,8 @@ Claude skill for turning plain explanation into public-science prose with a cosm
 
 It preserves the base meaning, cuts dead weight, adds supported explanatory bridges, translates scale, and returns a rewrite that a real writer can defend.
 
+It also includes a built-in humanizer pass calibrated against Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) field guide, so the rewrite rejects stock AI patterns instead of merely sounding more polished.
+
 </td>
 </tr>
 </table>
@@ -27,7 +29,7 @@ flat draft -> evidence sorted -> scale made visible -> sharper public prose
 <details open>
 <summary><strong>A personal note</strong></summary>
 
-I have been a fan of Neil deGrasse Tyson's work for a long time, not only because he explains science, but because he can enter almost any room in the population and make the room feel less locked out of the subject. A scientist can explain a paper to another scientist. That is expected. The rarer ability is explaining a scientific idea to the person who already decided, years ago, that science was not written for them.
+I have been a fan of Neil deGrasse Tyson's work for a long time. The appeal is direct: he can enter almost any room in the population and make the room feel less locked out of the subject. A scientist can explain a paper to another scientist. That is expected. The rarer ability is explaining a scientific idea to the person who already decided, years ago, that science was not written for them.
 
 For our parents' generation, Carl Sagan's *Cosmos* made that bridge feel possible on television. Today the same public role is carried by people like Neil deGrasse Tyson, Brian Cox, Michio Kaku, Becky Smethurst, and many others. We have to admit that many of us watch their videos, and some of us read their books, because they make the universe feel less private.
 
@@ -46,6 +48,8 @@ Some scientists understandably disliked the new pressure. If a researcher has li
 <summary><strong>What neilization is trying to do</strong></summary>
 
 `neilization` starts from that tension. It is free to use, and its guidance was calibrated from a large reference corpus spanning thousands of pages of publicly available Neil deGrasse Tyson materials: public-science prose, interviews, testimony, essays, and research PDFs. It is not a neural training run. It does not claim exact personal voice imitation. It studies high-level explanatory moves: how to begin with a human handle, widen the frame, sort evidence, translate scale, and return the cosmic thought back to the person reading.
+
+The skill also carries a humanizer pass calibrated against Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). That pass checks for the habits that make prose feel machine-smoothed: puffed-up importance, vague attribution, promotional diction, stock transitions, decorative formatting, chatbot stage directions, citation artifacts, and neat little three-part packages that look organized before they have earned the organization.
 
 The next stages should add separate branches for other science explainers, each calibrated from public material and each with its own register, tone, and explanatory instincts. The larger goal is simple: make difficult text less private without making it less honest.
 
@@ -110,6 +114,7 @@ node ~/.claude/skills/neilization/scripts/validate.mjs
 | Civic cosmic mode | Sorts belief, measurement, inference, preference, and public consequence. |
 | Formal research mode | Keeps papers, reports, and grants sober: claim, method, limit, consequence. |
 | Speech clarity mode | Cleans Q&A, testimony, talks, and transcripts into direct spoken prose. |
+| Built-in humanizer pass | Removes formulaic AI-writing residue while preserving disclosure and evidence boundaries. |
 | `scripts/validate.mjs` | Checks package structure, frontmatter, README image path, PNG validity, no emojis, and safety wording. |
 
 Example prompts:
@@ -199,7 +204,7 @@ Space exploration can inspire students and lead to technological innovation, but
 **Output**
 
 ```text
-A space program is never paid for with awe. It is paid for with budgets, which means it must stand beside schools, bridges, hospitals, and every other claim a civilization makes on its future. Its strongest case is not simply that the universe is beautiful, though it is. The case is that exploration trains a society to solve problems at the edge of what it knows, then returns some of that discipline to Earth in the form of instruments, engineers, and ambition.
+A space program is never paid for with awe. It is paid for with budgets, which means it must stand beside schools, bridges, hospitals, and every other claim a civilization makes on its future. The universe is beautiful, and beauty can start the conversation. The public case has to survive the budget hearing: exploration trains a society to solve problems at the edge of what it knows, then returns some of that discipline to Earth in the form of instruments, engineers, and ambition.
 ```
 
 **Edit moves**
@@ -241,6 +246,7 @@ Machine learning begins with examples. Feed a model enough labeled X-rays, loan 
 | Cut aggressively | Repetition, throat-clearing, and unsupported drift can go. |
 | Reorder freely | The final structure should follow cause, chronology, evidence strength, or scale. |
 | Match register | Research stays sober. Public prose can become more vivid. |
+| Reject AI residue | Remove generic importance, stock transitions, over-formatting, chatbot residue, and citation artifacts. |
 | Stay transparent | No fabricated evidence, copied phrasing, or detector promises. |
 
 ## How Claude Loads It
@@ -254,6 +260,7 @@ Reference files stay one level deep:
 | `references/voice-patterns.md` | Public-science cadence, scale translation, evidence sorting. |
 | `references/structural-patterns.md` | Paragraph order, pruning, argument pressure. |
 | `references/formulaic-vocabulary.md` | Replacements for inflated words and stock transitions. |
+| `references/anti-ai-patterns.md` | Humanizer quality gate based on Wikipedia's signs of AI writing. |
 | `references/safety-and-integrity.md` | Boundaries for imitation, disclosure, and detector requests. |
 | `references/examples.md` | Short calibration examples. |
 
@@ -266,6 +273,7 @@ The skill will not:
 - Invent sources, data, dates, page numbers, quotations, memories, or anecdotes.
 - Promise detector outcomes.
 - Add hidden characters, fake mistakes, disclosure-avoidance tactics, or artificial quirks.
+- Treat AI-writing signs as a detector game instead of a prose-quality problem.
 
 It will redirect those requests into transparent editing: clearer claims, stronger structure, accurate evidence, and prose the writer can defend.
 
@@ -282,6 +290,7 @@ neilization/
 |   |-- neilization_backgroundless.png
 |   `-- neilization_backgroundless_light.png
 |-- references/
+|   |-- anti-ai-patterns.md
 |   |-- examples.md
 |   |-- formulaic-vocabulary.md
 |   |-- safety-and-integrity.md
@@ -308,6 +317,7 @@ Then verify:
 | Skill frontmatter | Contains only `name` and `description`. |
 | References | Stay one level deep and load only when needed. |
 | Safety | No exact-imitation, fake-source, or detector-result promises. |
+| Humanizer | Wikipedia AI-writing signs are handled as prose-quality checks, not detector promises. |
 | Installers | `install.sh` and `install.ps1` point at `Coflazo/neilization`. |
 | Style | No emojis, no decorative filler, no copied README structure. |
 

@@ -1,6 +1,6 @@
 # Integrity Guidance For Detector Mentions
 
-Use this file only when the user mentions AI detectors, humanizing, detector evasion, Turnitin, GPTZero, Originality.ai, Winston, ZeroGPT, or similar tools.
+Use this file when the user mentions AI detectors, humanizing, detector evasion, Turnitin, GPTZero, Originality.ai, Winston, ZeroGPT, or similar tools.
 
 ## Boundary
 
@@ -39,6 +39,12 @@ Detector complaints often correlate with real prose issues:
 - Sentence-by-sentence paraphrase that preserves the old shape.
 
 Treat those as writing problems, not evasion targets.
+
+## Humanizer Boundary
+
+The built-in humanizer pass is a quality-control pass calibrated against Wikipedia's "Signs of AI writing" field guide. It removes generic importance claims, promotional diction, stock transitions, chatbot residue, citation artifacts, and over-formatted list behavior.
+
+Use it to make the text clearer, more specific, and more accountable to its evidence. Do not frame it as a detector trick, a score guarantee, or a way to hide required disclosure.
 
 ## Academic And Institutional Work
 
