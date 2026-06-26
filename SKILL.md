@@ -37,6 +37,29 @@ If the user asks for exact imitation or detector evasion, refuse that framing an
 - Read `references/safety-and-integrity.md` when the user mentions AI detectors, humanizing, bypass, school disclosure, or undetectability.
 - Read `references/examples.md` when you need a quick calibration example before rewriting.
 
+## Corpus Lookup
+
+The distilled references are enough for ordinary rewrites. They are not a substitute for the source files.
+
+Use the local corpus index when the user asks about specific claims, facts, works, phrases, examples, scientific topics, policy positions, interviews, testimony, papers, or source-grounded comparisons from the local folder `/Users/pc/Desktop/Neil degrasse Tyson`.
+
+1. If `.corpus/neil-corpus.sqlite` is missing and the source folder exists, build it:
+
+   ```bash
+   python3 scripts/build-corpus.py --source "/Users/pc/Desktop/Neil degrasse Tyson" --out .corpus
+   ```
+
+2. Search it before answering source-specific questions:
+
+   ```bash
+   python3 scripts/search-corpus.py "search terms" --limit 8
+   ```
+
+3. Cite local sources by document title and locator, such as page or chapter. Paraphrase by default. Use only short excerpts when the exact wording is necessary.
+4. If the corpus does not contain support for a requested claim, say that the local corpus search did not find it instead of guessing.
+5. Do not use corpus retrieval to imitate a living author's exact style. Use it for facts, themes, structures, evidence categories, and source-grounded context.
+6. Do not commit `.corpus/`; it contains locally extracted source text and search artifacts.
+
 ## Voice Rules
 
 - Start with a concrete handle: date, scene, object, measurement, public habit, or human dilemma.

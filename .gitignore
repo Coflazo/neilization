@@ -1,5 +1,6 @@
 .DS_Store
 *.bak.*
+/.corpus/
 /neilization.png
 /neilization_backgroundless.png
 /neilization_backgroundless_light.png

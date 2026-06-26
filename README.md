@@ -117,6 +117,28 @@ node ~/.claude/skills/neilization/scripts/validate.mjs
 | Built-in humanizer pass | Removes formulaic AI-writing residue while preserving disclosure and evidence boundaries. |
 | `scripts/validate.mjs` | Checks package structure, frontmatter, README image path, PNG validity, no emojis, and safety wording. |
 
+## Optional Local Corpus Index
+
+If you keep a local folder of Neil deGrasse Tyson source files, the skill can build a private search index from those PDFs and EPUBs. The index lets the agent look up document-specific facts, topics, and examples before answering source-grounded questions.
+
+Build the local index:
+
+```bash
+python3 ~/.claude/skills/neilization/scripts/build-corpus.py \
+  --source "/Users/pc/Desktop/Neil degrasse Tyson" \
+  --out ~/.claude/skills/neilization/.corpus
+```
+
+Search it directly:
+
+```bash
+python3 ~/.claude/skills/neilization/scripts/search-corpus.py \
+  "cosmic perspective" \
+  --db ~/.claude/skills/neilization/.corpus/neil-corpus.sqlite
+```
+
+`.corpus/` is ignored by git. It is a local artifact containing extracted text, OCR cache files, and the SQLite search index.
+
 Example prompts:
 
 ```text

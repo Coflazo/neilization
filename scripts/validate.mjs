@@ -42,6 +42,8 @@ for (const rel of [
   "INSTALL.md",
   "install.sh",
   "install.ps1",
+  "scripts/build-corpus.py",
+  "scripts/search-corpus.py",
   "assets/neilization_backgroundless.png",
   "assets/neilization_backgroundless_light.png",
   "references/voice-patterns.md",
@@ -70,8 +72,15 @@ if (readme) {
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.sh"), "README must include install.sh command");
   assert(readme.includes("raw.githubusercontent.com/Coflazo/neilization/main/install.ps1"), "README must include install.ps1 command");
   assert(readme.includes("https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"), "README must mention Wikipedia Signs of AI writing");
+  assert(readme.includes("scripts/build-corpus.py"), "README must mention scripts/build-corpus.py");
+  assert(readme.includes("scripts/search-corpus.py"), "README must mention scripts/search-corpus.py");
   assert(!/\p{Extended_Pictographic}/u.test(readme), "README must not contain emoji pictographs");
   assert(!/passing\s+(GPTZero|Turnitin|Originality)|undetectable|bypass/i.test(readme), "README contains detector-bypass wording");
+}
+
+const gitignore = read(".gitignore");
+if (gitignore) {
+  assert(/^\/\.corpus\/$/m.test(gitignore), ".gitignore must ignore /.corpus/");
 }
 
 const installSh = read("install.sh");
